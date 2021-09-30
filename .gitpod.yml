@@ -1,0 +1,51 @@
+---
+image:
+  file: .gitpod.dockerfile
+
+tasks:
+  - name: initialize
+    init: |
+      # ------------------------------------
+      # wasmer
+      # ------------------------------------
+      curl https://get.wasmer.io -sSfL | sh
+      source /home/gitpod/.wasmer/wasmer.sh
+
+      # ------------------------------------
+      # grain
+      # ------------------------------------
+      (echo 'export PATH="${PATH}:$(yarn global bin)"' >> ~/.bashrc) && source ~/.bashrc
+
+      clear
+      gp sync-done prerequisites
+
+
+  - name: functions
+    init: gp sync-await prerequisites
+    command: |
+      source /home/gitpod/.wasmer/wasmer.sh 
+      (echo 'export PATH="${PATH}:$(yarn global bin)"' >> ~/.bashrc) && source ~/.bashrc
+      cd functions
+      clear
+
+  - name: src
+    init: gp sync-await prerequisites
+    command: |
+      source /home/gitpod/.wasmer/wasmer.sh 
+      (echo 'export PATH="${PATH}:$(yarn global bin)"' >> ~/.bashrc) && source ~/.bashrc
+      cd src
+      clear
+
+ports:
+  - port: 8080
+    visibility: public
+
+vscode:
+  extensions:
+    - wayou.vscode-todo-highlight
+    - coenraads.bracket-pair-colorizer-2
+    - pkief.material-icon-theme
+    - rust-lang.rust
+    - marp-team.marp-vscode@1.3.0
+    - grain-lang.vscode-grain
+    - johnpapa.vscode-peacock

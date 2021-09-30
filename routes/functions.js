@@ -1,6 +1,7 @@
 const spawn = require('child_process').spawn
 
 function execute(wasmFile, jsonParameters, request, reply, options, fastify) {
+  // https://stackoverflow.com/questions/34648904/how-can-i-remove-escape-sequences-from-json-stringify-so-that-its-human-readabl
   let child = spawn(
     "wasmer",
     [`functions/${wasmFile}`, JSON.stringify(jsonParameters)],

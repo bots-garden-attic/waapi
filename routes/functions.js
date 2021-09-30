@@ -38,6 +38,7 @@ function execute(wasmFile, jsonParameters, request, reply, options, fastify) {
 async function wasmFunctions (fastify, options) {
 /*
 ```bash
+url_api=$(gp url 8080)
 function_name="hello"
 function_version="first"
 data='{"name":"Bob"}'

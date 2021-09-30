@@ -1,0 +1,9 @@
+print("👋 Hello World 🌍")
+
+/*
+url_api=$(gp url 8080)
+function_name="grain.hello"
+function_version="0.0.0"
+http POST \
+  "${url_api}/functions/${function_name}/${function_version}"
+*/

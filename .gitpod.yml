@@ -16,6 +16,13 @@ tasks:
       # ------------------------------------
       (echo 'export PATH="${PATH}:$(yarn global bin)"' >> ~/.bashrc) && source ~/.bashrc
 
+      # ------------------------------------
+      # fastify
+      # ------------------------------------
+      npm install
+
+      sudo apt install httpie -y
+
       clear
       gp sync-done prerequisites
 

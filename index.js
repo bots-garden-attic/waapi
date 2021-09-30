@@ -3,9 +3,12 @@ const path = require('path')
 
 // Serve the static assets
 fastify.register(require('fastify-static'), {
-  root: path.join(__dirname, ''),
+  root: path.join(__dirname, 'public'),
   prefix: '/'
 })
+
+fastify.register(require('./routes/functions.js'), {})
+
 
 const start = async () => {
   try {

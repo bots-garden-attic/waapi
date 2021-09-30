@@ -1,0 +1,16 @@
+import Process from "sys/process"
+import Array from "array"
+
+match (Process.argv()) {
+  Ok(value) => print(Array.get(1, value)),
+  Err(err) => fail "😡 ouch"
+}
+
+/*
+url_api=$(gp url 8080)
+function_name="grain.hey"
+function_version="0.0.0"
+http POST \
+  "${url_api}/functions/${function_name}/${function_version}" \
+  name=Bob
+*/

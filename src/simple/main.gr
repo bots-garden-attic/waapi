@@ -1,0 +1,9 @@
+
+
+
+//print("👋 Hello World 🌍")
+
+let hello = () => {
+  //print("👋 Hello World 🌍")
+  "👋 Hello World 🌍"
+}

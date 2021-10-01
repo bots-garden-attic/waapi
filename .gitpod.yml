@@ -9,14 +9,14 @@ tasks:
       # ------------------------------------
       # golang & tinygo
       # ------------------------------------
-      echo "👋 installing gvm" 
-      bash < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
-      source /home/gitpod/.gvm/scripts/gvm
-      echo "👋 installing go 1.16" 
-      gvm install go1.16 -B
-      gvm use go1.16
-      echo "👋 get go dependencies"
-      go get -v -t -d ./...
+      #echo "👋 installing gvm" 
+      #bash < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
+      #source /home/gitpod/.gvm/scripts/gvm
+      #echo "👋 installing go 1.16" 
+      #gvm install go1.16 -B
+      #gvm use go1.16
+      #echo "👋 get go dependencies"
+      #go get -v -t -d ./...
 
       echo "👋 installing tinygo 0.19.0"
       wget https://github.com/tinygo-org/tinygo/releases/download/v0.19.0/tinygo_0.19.0_amd64.deb
@@ -25,7 +25,7 @@ tasks:
       export PATH=$PATH:/usr/local/tinygo/bin
       tinygo version
 
-      #go get github.com/wasmerio/wasmer-go/wasmer
+      go get github.com/wasmerio/wasmer-go/wasmer
 
       # ------------------------------------
       # RustLang

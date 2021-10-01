@@ -7,6 +7,32 @@ tasks:
     init: |
 
       # ------------------------------------
+      # golang & tinygo
+      # ------------------------------------
+      echo "👋 installing gvm" 
+      bash < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/master/binscripts/gvm-installer)
+      source /home/gitpod/.gvm/scripts/gvm
+      echo "👋 installing go 1.16" 
+      gvm install go1.16 -B
+      gvm use go1.16
+      echo "👋 get go dependencies"
+      go get -v -t -d ./...
+
+      echo "👋 installing tinygo 0.19.0"
+      wget https://github.com/tinygo-org/tinygo/releases/download/v0.19.0/tinygo_0.19.0_amd64.deb
+      sudo dpkg -i tinygo_0.19.0_amd64.deb
+      rm tinygo_0.19.0_amd64.deb
+      export PATH=$PATH:/usr/local/tinygo/bin
+      tinygo version
+
+      #go get github.com/wasmerio/wasmer-go/wasmer
+
+      # ------------------------------------
+      # RustLang
+      # ------------------------------------
+      curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh
+
+      # ------------------------------------
       # wasmer
       # ------------------------------------
       curl https://get.wasmer.io -sSfL | sh
@@ -30,6 +56,7 @@ tasks:
       wget https://hey-release.s3.us-east-2.amazonaws.com/hey_linux_amd64
       chmod +x hey_linux_amd64
       sudo cp hey_linux_amd64 /usr/bin/hey
+      rm hey_linux_amd64
 
       clear
       gp sync-done prerequisites
@@ -57,6 +84,7 @@ ports:
 
 vscode:
   extensions:
+    - golang.go
     - wayou.vscode-todo-highlight
     - coenraads.bracket-pair-colorizer-2
     - pkief.material-icon-theme

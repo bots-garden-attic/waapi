@@ -4,6 +4,8 @@
 
 ![waapi](pictures/waapi.gif)
 
+> 🖐 this is a POC to play, don't use this in production. The final version will use another way to serve the wasm functions
+
 [![Open in GitPod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/k33g/waapi)
 
 ## Prerequisites

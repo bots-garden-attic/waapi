@@ -16,7 +16,7 @@ function execute(wasmFile, jsonParameters, request, reply, options, fastify) {
   child.stdout.on('data', (data) => {
     fastify.log.info(`🤖 ${data}`)
     reply.header('Content-Type', 'application/json; charset=utf-8')
-      .send({success: data.toString()}) 
+      .send({success: JSON.parse(data.toString())}) 
   })
 
   child.stderr.on('data', (data) => {
